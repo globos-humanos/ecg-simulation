@@ -6,19 +6,29 @@ This project is an interactive ECG simulator designed specifically for medical s
 Unlike basic waveform generators, this simulator focuses on real ECG behavior, allowing users to explore how different cardiac conditions, physiological changes, and external factors alter ECG morphology across leads.
 
 The tool is intended for:
+
 Medical students preparing for exams
+
 Interns and residents revising ECG interpretation
+
 Educators looking for a simple teaching aid
 
 ✨ Key Features
 
 Interactive ECG waveform generation
+
 Simulation of common and important ECG patterns
+
 Rate and rhythm changes
+
 Axis deviations
+
 ST–T changes
+
 Conduction abnormalities
+
 Lead-based visualization (clinically oriented, not abstract)
+
 Simple, distraction-free interface focused on learning
 
 🎯 Educational Philosophy
@@ -33,8 +43,11 @@ This project is part of a broader effort to create practical, exam-oriented, and
 This is an actively evolving project.
 
 Planned improvements include:
+
 More pathological ECG patterns
+
 Scenario-based simulations (e.g., electrolyte imbalance, drug effects)
+
 Better lead-specific correlations
 
 Contributions, suggestions, and feedback are welcome.
