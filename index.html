@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced ECG Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Advanced ECG Simulator</h1>
+            <div style="font-size: 0.9rem; opacity: 0.7;">Medical Education Tool</div>
+        </header>
+        
+        <main class="main-layout">
+            <div class="monitor-area">
+                <div class="view-toolbar">
+                    <!-- Layouts -->
+                    <button class="view-btn active" data-layout="1">1 View</button>
+                    <button class="view-btn" data-layout="2">2 Views</button>
+                    <button class="view-btn" data-layout="4">4 Views</button>
+                    <button class="view-btn" data-layout="12">12-Lead</button>
+                    
+                    <div class="separator"></div>
+                    
+                    <!-- Tools -->
+                    <button class="tool-btn" id="btnFreeze">❄️ Freeze</button>
+                    <button class="tool-btn" id="btnAnalyze">🔍 Analyze</button>
+                    <button class="tool-btn" id="btnSpeed">⏩ 25mm/s</button>
+                    
+                    <div class="separator"></div>
+                    
+                    <!-- Zoom (Amplitude Only) -->
+                    <div style="display:flex; align-items:center; gap:5px; font-size:0.9rem; color:#aaa; margin-right:5px;">Amp:</div>
+                    <button class="tool-btn" data-zoom="0.5">0.5x</button>
+                    <button class="tool-btn active" data-zoom="1.0">1.0x</button>
+                    <button class="tool-btn" data-zoom="2.0">2.0x</button>
+
+                    <div class="separator"></div>
+                    
+                    <!-- Interventions -->
+                    <button class="action-btn shock" id="btnShock">⚡ SHOCK</button>
+                </div>
+                
+                <div id="monitorGrid" class="monitor-grid grid-1">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+
+            <div class="controls-sidebar">
+                
+                <div class="sidebar-section">
+                    <h2>Manual Controls <span style="font-size:0.7em; opacity:0.6; font-weight:normal">(Active Screen)</span></h2>
+                    <div class="control-item">
+                        <div class="control-header">
+                            <label>Heart Rate</label>
+                            <span class="readout" id="bpmReadout">60</span>
+                        </div>
+                        <input type="range" id="bpmSlider" min="30" max="250" value="60">
+                    </div>
+
+                    <div class="control-item">
+                        <div class="control-header">
+                            <label>Artifact / Noise</label>
+                            <span class="readout" id="noiseReadout">5%</span>
+                        </div>
+                        <input type="range" id="noiseSlider" min="0" max="100" value="5">
+                    </div>
+
+                    <div class="control-item" id="leadSelectorContainer">
+                         <div class="control-header">
+                            <label>ECG Lead</label>
+                        </div>
+                        <select id="leadSelector">
+                            <option value="I">Lead I</option>
+                            <option value="II" selected>Lead II</option>
+                            <option value="III">Lead III</option>
+                            <option value="aVR">aVR</option>
+                            <option value="aVL">aVL</option>
+                            <option value="aVF">aVF</option>
+                            <option value="V1">V1</option>
+                            <option value="V2">V2</option>
+                            <option value="V3">V3</option>
+                            <option value="V4">V4</option>
+                            <option value="V5">V5</option>
+                            <option value="V6">V6</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sidebar-section" style="flex: 1; overflow-y: auto;">
+                    <h2>Clinical Conditions</h2>
+                    <div id="conditionsMenu" class="category-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <div class="info-box" id="infoBox">
+                    <h3>Normal Sinus Rhythm</h3>
+                    <p>Standard healthy heart rhythm with normal intervals and wave morphology.</p>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
