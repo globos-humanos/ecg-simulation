@@ -10,7 +10,7 @@ Unlike basic waveform generators, this simulator focuses on real ECG behavior, a
 - Interns and residents revising ECG interpretation  
 - Educators looking for a simple teaching aid  
 
----
+
 
 ## ✨ Key Features
 
@@ -23,7 +23,7 @@ Unlike basic waveform generators, this simulator focuses on real ECG behavior, a
 - Lead-based visualization (clinically oriented, not abstract)  
 - Simple, distraction-free interface focused on learning  
 
----
+
 
 ## 🎯 Educational Philosophy
 
@@ -32,7 +32,7 @@ Every change in the waveform reflects an underlying physiological or pathologica
 
 This project is part of a broader effort to create **practical, exam-oriented, and clinically grounded tools for medicos**, built by a doctor for doctors.
 
----
+
 
 ## 🚧 Project Status
 
@@ -45,7 +45,6 @@ Planned improvements include:
 
 Contributions, suggestions, and feedback are welcome.
 
----
 
 ## ⚠️ Disclaimer
 
