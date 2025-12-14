@@ -1,7 +1,6 @@
-# ecg-simulation
+# 🫀 ECG Simulator for Medical Training
 An interactive ECG simulator for medical training, focused on clinically accurate waveform and lead-based changes.
 
-🫀 ECG Simulator for Medical Training
 This project is an interactive ECG simulator designed specifically for medical students and clinicians, built to help understand, visualize, and revise electrocardiographic patterns in a practical, clinically relevant way.
 
 Unlike basic waveform generators, this simulator focuses on real ECG behavior, allowing users to explore how different cardiac conditions, physiological changes, and external factors alter ECG morphology across leads.
