@@ -35,21 +35,47 @@ let currentNoteIndex = 0;
 
 // 3. Audio Logic
 
-const audioCache = {};
+const NOTE_FREQUENCIES = {
+    'C3': 130.81, 'D3': 146.83, 'E3': 164.81, 'F3': 174.61, 'G3': 196.00, 'A3': 220.00, 'B3': 246.94,
+    'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
+    'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00, 'B5': 987.77
+};
+
+let audioCtx;
+
+function initAudio() {
+    if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+    }
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+}
 
 function playNote(note) {
-    if (!note) return;
+    if (!note || !NOTE_FREQUENCIES[note]) return;
 
-    if (!audioCache[note]) {
-        audioCache[note] = new Audio(`sounds/${note}.mp3`);
-    }
+    // Initialize audio context on first user interaction
+    initAudio();
 
-    const audio = audioCache[note];
-    audio.currentTime = 0;
-    // Handle potential errors (missing files) silently as requested
-    audio.play().catch(e => {
-        console.warn(`Could not play sound for note: ${note}`, e);
-    });
+    const osc = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    osc.type = 'triangle'; // Triangle wave sounds somewhat like a simple piano/flute
+    osc.frequency.value = NOTE_FREQUENCIES[note];
+
+    // Envelope (Attack -> Decay)
+    const now = audioCtx.currentTime;
+    gainNode.gain.setValueAtTime(0, now);
+    gainNode.gain.linearRampToValueAtTime(0.3, now + 0.01); // Quick attack
+    gainNode.gain.exponentialRampToValueAtTime(0.001, now + 1); // Fade out
+
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(now + 1);
 }
 
 // 4. Initialization & Rendering
