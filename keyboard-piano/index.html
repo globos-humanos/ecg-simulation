@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Piano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Keyboard Piano</h1>
+
+        <div class="controls">
+            <label for="mode-toggle">
+                <input type="checkbox" id="mode-toggle"> Song Mode
+            </label>
+            <select id="song-select" disabled>
+                <option value="" disabled selected>Select a song</option>
+            </select>
+        </div>
+
+        <div id="song-display" class="song-display hidden">
+            <!-- Letters will be injected here -->
+        </div>
+
+        <div class="keyboard">
+            <div class="row" id="row-high"></div>
+            <div class="row" id="row-middle"></div>
+            <div class="row" id="row-low"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
